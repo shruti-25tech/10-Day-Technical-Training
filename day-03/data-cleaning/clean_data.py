@@ -1,7 +1,7 @@
 import pandas as pd
 
 # Read the dataset
-df = pd.read_csv("../dataset/facilities.csv")
+df = pd.read_excel("dataset/facility_hygiene_ml_dataset.xlsx")
 
 # Display basic information
 print("First 5 rows:")
@@ -79,7 +79,7 @@ outliers = df[
 print("\nFootfall outliers:")
 print(outliers[["facility_id", "location", "footfall"]])
 # Save cleaned dataset
-df.to_csv("../dataset/cleaned_facilities.csv", index=False)
+df.to_csv("dataset/cleaned_facilities.csv", index=False)
 
 print("\nCleaning completed.")
 print("Final dataset shape:", df.shape)
