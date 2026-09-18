@@ -2,7 +2,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 # Read cleaned dataset
-df = pd.read_csv("../dataset/cleaned_facilities.csv")
+df = pd.read_csv("dataset/cleaned_facilities.csv")
 
 # Convert inspection date to datetime
 df["inspection_date"] = pd.to_datetime(df["inspection_date"])

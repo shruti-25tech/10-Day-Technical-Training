@@ -1,7 +1,7 @@
 import pandas as pd
 
 # Read cleaned dataset
-df = pd.read_csv("../dataset/cleaned_facilities.csv")
+df = pd.read_csv("dataset/cleaned_facilities.csv")
 
 # Basic statistics
 print("===== BASIC STATISTICS =====")
