@@ -1,0 +1,42 @@
+[
+    {
+        "id": 1,
+        "name": "Rahul Sharma",
+        "email": "rahul@example.com",
+        "department": "Data Science",
+        "salary": 45000,
+        "city": "Amravati"
+    },
+    {
+        "id": 2,
+        "name": "Priya Patil",
+        "email": "priya@example.com",
+        "department": "Data Engineering",
+        "salary": 50000,
+        "city": "Nagpur"
+    },
+    {
+        "id": 3,
+        "name": "Amit Deshmukh",
+        "email": "amit@example.com",
+        "department": "Web Development",
+        "salary": 40000,
+        "city": "Pune"
+    },
+    {
+        "id": 4,
+        "name": "Sneha Joshi",
+        "email": "sneha@example.com",
+        "department": "Data Science",
+        "salary": 55000,
+        "city": "Mumbai"
+    },
+    {
+        "id": 5,
+        "name": "Rohan Kulkarni",
+        "email": "rohan@example.com",
+        "department": "Cloud",
+        "salary": 60000,
+        "city": "Nashik"
+    }
+]
