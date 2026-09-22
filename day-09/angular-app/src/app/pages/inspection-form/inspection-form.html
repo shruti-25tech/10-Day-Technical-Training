@@ -1,0 +1,19 @@
+<h2>Inspection Form</h2>
+
+<form [formGroup]="inspectionForm" (ngSubmit)="submitForm()">
+
+  <label>Facility ID</label>
+  <input type="text" formControlName="facilityId">
+
+  <label>Cleanliness Score</label>
+  <input type="number" formControlName="cleanliness">
+
+  <label>Complaints</label>
+  <input type="number" formControlName="complaints">
+
+  <label>Inspection Date</label>
+  <input type="date" formControlName="inspectionDate">
+
+  <button type="submit">Submit Inspection</button>
+
+</form>

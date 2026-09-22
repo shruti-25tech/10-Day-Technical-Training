@@ -1,0 +1,11 @@
+.metrics {
+  display: flex;
+  gap: 15px;
+  margin: 20px 0;
+}
+
+.metrics div {
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
