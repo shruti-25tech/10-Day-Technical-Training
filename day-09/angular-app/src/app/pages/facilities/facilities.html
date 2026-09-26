@@ -1,0 +1,14 @@
+<h2>Facility List</h2>
+
+<input #searchBox placeholder="Search facility"
+       (input)="search(searchBox.value)">
+
+<button (click)="sort()">Sort A-Z</button>
+
+@if (error) {
+  <p>{{ error }}</p>
+}
+
+@for (facility of filtered; track facility.id) {
+  <p>{{ facility.id }} - {{ facility.name }} - {{ facility.email }}</p>
+}
