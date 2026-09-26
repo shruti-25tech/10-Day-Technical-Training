@@ -6,13 +6,11 @@ import os
 
 app = FastAPI(title="Smart Hygiene Risk Prediction API")
 
-
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 MODEL_DIR = os.path.join(BASE_DIR, "ml", "models")
 
 model = joblib.load(os.path.join(MODEL_DIR, "hygiene_risk_model.pkl"))
 target_encoder = joblib.load(os.path.join(MODEL_DIR, "target_encoder.pkl"))
-feature_encoders = joblib.load(os.path.join(MODEL_DIR, "feature_encoders.pkl"))
 
 
 class FacilityData(BaseModel):
@@ -35,13 +33,36 @@ def home():
 @app.post("/api")
 def predict(data: FacilityData):
     try:
-        location = feature_encoders["location"].transform([data.location])[0]
-        facility_type = feature_encoders["facility_type"].transform(
-            [data.facility_type]
-        )[0]
-        water_availability = feature_encoders["water_availability"].transform(
-            [data.water_availability]
-        )[0]
+        location_mapping = {
+            "Civil Lines": 0,
+            "Dharampeth": 1,
+            "Hingna": 2,
+            "Kamptee Road": 3,
+            "Manish Nagar": 4,
+            "Mihan": 5,
+            "Nagpur Central": 6,
+            "Sadar": 7,
+            "Sitabuldi": 8,
+            "Wardha Road": 9
+        }
+
+        facility_mapping = {
+            "Hospital Washroom": 0,
+            "Mall Washroom": 1,
+            "Office Washroom": 2,
+            "Public Washroom": 3,
+            "School Washroom": 4,
+            "Transit Washroom": 5
+        }
+
+        water_mapping = {
+            "Available": 1,
+            "Not Available": 0
+        }
+
+        location = location_mapping[data.location]
+        facility_type = facility_mapping[data.facility_type]
+        water_availability = water_mapping[data.water_availability]
 
         complaints_per_100_footfall = (
             data.complaints / data.footfall
@@ -61,7 +82,6 @@ def predict(data: FacilityData):
         }])
 
         prediction = model.predict(input_data)
-
         risk = target_encoder.inverse_transform(prediction)[0]
 
         return {
