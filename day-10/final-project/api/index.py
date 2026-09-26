@@ -27,12 +27,12 @@ class FacilityData(BaseModel):
     hours_since_cleaning: float
 
 
-@app.get("/api")
+@app.get("/")
 def home():
     return {"message": "Smart Hygiene Risk Prediction API is running"}
 
 
-@app.post("/api/predict")
+@app.post("/predict")
 def predict(data: FacilityData):
     try:
         location = feature_encoders["location"].transform([data.location])[0]
