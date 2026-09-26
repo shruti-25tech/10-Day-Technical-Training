@@ -32,7 +32,7 @@ def home():
     return {"message": "Smart Hygiene Risk Prediction API is running"}
 
 
-@app.post("/api/predict")
+@app.post("/api")
 def predict(data: FacilityData):
     try:
         location = feature_encoders["location"].transform([data.location])[0]
